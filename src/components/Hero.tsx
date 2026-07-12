@@ -308,7 +308,7 @@ export default function Hero() {
 
       {/* ═══ RIGHT COLUMN: 3D Model Video ═══ */}
       <motion.div
-        className="w-full lg:w-1/2 relative h-[55vh] sm:h-[60vh] lg:h-auto overflow-hidden z-20 group flex items-center justify-center"
+        className="w-full lg:w-1/2 relative h-[65vh] sm:h-[70vh] lg:h-auto overflow-hidden z-20 group flex items-center justify-center"
         style={{
           transform: isVisible ? 'translateY(0)' : 'translateY(-80px)',
           opacity: isVisible ? 1 : 0,
@@ -326,37 +326,39 @@ export default function Hero() {
             </div>
           </div>
         )}
-
+ 
         {/* THE VIDEO: Centered 3D model with removed background */}
         <video
           ref={videoRef}
-          src={modelVideo}
           autoPlay
           loop
           muted
           playsInline
           onLoadedData={() => setIsVideoLoaded(true)}
-          className="relative z-[10] w-[85%] h-[85%] lg:w-[90%] lg:h-[90%] max-h-[60vh] lg:max-h-[70vh] object-contain object-center"
+          className="relative z-[10] w-[95%] h-[95%] lg:w-[100%] lg:h-[100%] max-h-[70vh] lg:max-h-[85vh] object-contain object-center"
           style={{
-            transform: isVideoLoaded ? 'scale(0.98)' : 'scale(0.88)',
+            transform: isVideoLoaded ? 'scale(1.08)' : 'scale(0.88)',
             opacity: isVideoLoaded ? 1 : 0,
             transition: 'transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 1.5s ease-out, opacity 1s ease-out',
             filter: 'brightness(1.0) contrast(1.1) saturate(1.05)',
+            mixBlendMode: 'screen',
           }}
           onMouseEnter={(e) => {
             if (!prefersReducedMotion && isVideoLoaded) {
-              e.currentTarget.style.transform = 'scale(1.03)';
+              e.currentTarget.style.transform = 'scale(1.13)';
               e.currentTarget.style.filter = 'brightness(1.05) contrast(1.15) saturate(1.1)';
             }
           }}
           onMouseLeave={(e) => {
             if (isVideoLoaded) {
-              e.currentTarget.style.transform = 'scale(0.98)';
+              e.currentTarget.style.transform = 'scale(1.08)';
               e.currentTarget.style.filter = 'brightness(1.0) contrast(1.1) saturate(1.05)';
             }
           }}
-        />
-
+        >
+          <source src="/model-3d.webm" type="video/webm" />
+          <source src="/model-rotating.mp4" type="video/mp4" />
+        </video>
       </motion.div>
 
       {/* Scroll indicator */}
