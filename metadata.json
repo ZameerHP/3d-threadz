@@ -1,0 +1,6 @@
+{
+  "name": "3D THREADZ",
+  "description": "Premium streetwear brand specializing in high-quality heavyweight printed graphic tees with metallic and chrome liquid textures.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
